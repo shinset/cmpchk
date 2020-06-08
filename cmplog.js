@@ -46,4 +46,4 @@ try {
 catch (e) {
     console.log(e);
 }
-// ref https://iabeurope.eu/tcf-2-0/
+// ref https://iabeurope.eu/tcf-2-0/ | https://iabeurope.eu/events/tcf-workshop-webinars-switch-over-from-tcf-v1-0-to-tcf-v2-0-support/

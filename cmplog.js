@@ -46,3 +46,4 @@ try {
 catch (e) {
     console.log(e);
 }
+// ref https://iabeurope.eu/tcf-2-0/

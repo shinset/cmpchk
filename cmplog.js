@@ -6,7 +6,7 @@ try {
                 console.log('CONSENT STRING MISSING CHECK USER ACTIONS in cmp UI or CMP integration')
             }
             if (cmp_V2.cmpStatus == 'loaded' && (cmp_V2.tcString != '' || cmp_V2.tcString != null)) {
-                console.log("FOUND TCFAPI CMP.V2\nConsent string V2 (C) copied into your clipboard !\nPaste it into an IAB TCF V2 decoder");
+                console.log("FOUND TCFAPI CMP.V2\nConsent string V2 (C) copied into your clipboard !\nPaste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode");
                 console.log(cmp_V2.tcString);
                 console.log(cmp_V2);
                 copy(cmp_V2.tcString);
@@ -23,7 +23,7 @@ try {
                 console.log('CONSENT STRING MISSING CHECK USER ACTIONS in cmp UI or CMP integration')
             }
             if (cmp_V1.consentData != '' || cmp_V1.consentData != null) {
-                console.log("FOUND CMP.V1\nConsent string V1 (B) copied into your clipboard !\nPaste it into an IAB TCF V1  decoder");
+                console.log("FOUND CMP.V1\nConsent string V1 (B) copied into your clipboard !\nPaste it into an IAB TCF V1  decoder like https://acdn.origin.appnexus.net/cmp/docs/#/tools/vendor-cookie-inspector or use cookie glass https://chrome.google.com/webstore/detail/cookie-glasses/gncnjghkclkhpkfhghcbobednpchjifk");
                 console.log(cmp_V1.consentData);
                 console.log(cmp_V1);
                 copy(cmp_V1.consentData);

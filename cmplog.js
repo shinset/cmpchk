@@ -46,4 +46,22 @@ try {
 catch (e) {
     console.log(e);
 }
+
+  /*
+            function ReadCookie() {
+               var allcookies = document.cookie;
+               document.write ("All Cookies : " + allcookies );
+               
+               // Get all the cookies pairs in an array
+               cookiearray = allcookies.split(';');
+               
+               // Now take key value pair out of this array
+               for(var i=0; i<cookiearray.length; i++) {
+                  name = cookiearray[i].split('=')[0];
+                  value = cookiearray[i].split('=')[1];
+                  document.write ("Key is : " + name + " and Value is : " + value);
+               }
+            }
+         */
+// https://www.tutorialspoint.com/javascript/javascript_cookies.htm | https://ppk.developpez.com/tutoriels/javascript/gestion-cookies-javascript/ | https://javascript.info/cookie
 // ref https://iabeurope.eu/tcf-2-0/ | https://iabeurope.eu/events/tcf-workshop-webinars-switch-over-from-tcf-v1-0-to-tcf-v2-0-support/

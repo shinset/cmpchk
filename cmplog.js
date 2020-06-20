@@ -6,12 +6,13 @@ try {
                 console.log('CONSENT STRING MISSING CHECK USER ACTIONS in cmp UI or CMP integration')
             }
             if (cmp_V2.cmpStatus == 'loaded' && (cmp_V2.tcString != '' || cmp_V2.tcString != null)) {
-                console.log("FOUND TCFAPI CMP.V2\nConsent string V2 (C) copied into your clipboard !\nPaste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode");
+                console.log("FOUND TCFAPI CMP.V2\nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode");
                 console.log(cmp_V2.tcString);
                 console.log(cmp_V2);
-                copy(cmp_V2.tcString);
-                alert('Consent V2 copied to clipboard !')
+                alert('Found Consent String TCF v2\n Check console log \n' + cmp_V2.tcString);
                 window.open('https://consentstringdecoder.com/', '_blank'); // official IAB decoder tool https://iabtcf.com/#/decode
+copy(cmp_V2.tcString);
+
 
             }
         });
@@ -23,13 +24,14 @@ try {
                 console.log('CONSENT STRING MISSING CHECK USER ACTIONS in cmp UI or CMP integration')
             }
             if (cmp_V1.consentData != '' || cmp_V1.consentData != null) {
-                console.log("FOUND CMP.V1\nConsent string V1 (B) copied into your clipboard !\nPaste it into an IAB TCF V1  decoder like https://acdn.origin.appnexus.net/cmp/docs/#/tools/vendor-cookie-inspector or use cookie glass https://chrome.google.com/webstore/detail/cookie-glasses/gncnjghkclkhpkfhghcbobednpchjifk");
+                console.log("FOUND CMP.V1\nConsent string V1 (B)\n Copy & Paste it into an IAB TCF V1  decoder like https://acdn.origin.appnexus.net/cmp/docs/#/tools/vendor-cookie-inspector or use cookie glass https://chrome.google.com/webstore/detail/cookie-glasses/gncnjghkclkhpkfhghcbobednpchjifk");
                 console.log(cmp_V1.consentData);
                 console.log(cmp_V1);
-                copy(cmp_V1.consentData);
-                alert('Consent V1 copied to clipboard !')
+                alert('Found Consent String CMP v1\n Check console log \n' + cmp_V1.consentData)
 
                 window.open('https://acdn.origin.appnexus.net/cmp/docs/#/tools/vendor-cookie-inspector', '_blank');
+                copy(cmp_V1.consentData);
+
             }
 
         });
@@ -46,7 +48,6 @@ try {
 catch (e) {
     console.log(e);
 }
-
   /*
             function ReadCookie() {
                var allcookies = document.cookie;

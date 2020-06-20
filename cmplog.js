@@ -12,8 +12,9 @@ try {
                 console.log(cmp_V2.tcString);
                 console.log(cmp_V2);
                 alert('Found Consent String TCF v2\n Check console log \n' + cmp_V2.tcString);
+                copy(cmp_V2.tcString);
                 window.open('https://consentstringdecoder.com/', '_blank'); // official IAB decoder tool https://iabtcf.com/#/decode
-copy(cmp_V2.tcString);
+
 
 
             }
@@ -29,10 +30,11 @@ copy(cmp_V2.tcString);
                 console.log("FOUND CMP.V1\nConsent string V1 (B)\n Copy & Paste it into an IAB TCF V1  decoder like https://acdn.origin.appnexus.net/cmp/docs/#/tools/vendor-cookie-inspector or use cookie glass https://chrome.google.com/webstore/detail/cookie-glasses/gncnjghkclkhpkfhghcbobednpchjifk");
                 console.log(cmp_V1.consentData);
                 console.log(cmp_V1);
-                alert('Found Consent String CMP v1\n Check console log \n' + cmp_V1.consentData)
+                alert('Found Consent String CMP v1\n Check console log \n' + cmp_V1.consentData);
+                                copy(cmp_V1.consentData);
+
 
                 window.open('https://acdn.origin.appnexus.net/cmp/docs/#/tools/vendor-cookie-inspector', '_blank');
-                copy(cmp_V1.consentData);
 
             }
 

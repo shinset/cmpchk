@@ -1,3 +1,5 @@
+function cmpChk() {
+
 try {
     if (typeof(__tcfapi) != 'undefined') {
         __tcfapi('getTCData', 2, cmp_V2 => {
@@ -48,6 +50,11 @@ copy(cmp_V2.tcString);
 catch (e) {
     console.log(e);
 }
+
+
+} 
+
+window.onload = cmpChk();
   /*
             function ReadCookie() {
                var allcookies = document.cookie;

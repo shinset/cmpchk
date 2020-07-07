@@ -1,6 +1,7 @@
 function cmpChk() {
 
 try {
+
     if (typeof(__tcfapi) != 'undefined') {
         __tcfapi('getTCData', 2, cmp_V2 => {
 
@@ -22,6 +23,7 @@ try {
             }
         });
     }
+
 
     if (typeof(__cmp) != 'undefined') {
         __cmp('getConsentData', 1, cmp_V1 => {
@@ -45,7 +47,22 @@ try {
 
     }
 
-    if (typeof(__cmp) == 'undefined' && typeof(__tcfapi) == 'undefined') {
+
+        if (typeof(__uspapi) != 'undefined') {
+__uspapi('getUSPData', 1, (CCPA) =>{
+                console.log('FOUND CCPA FRAMEWORK \n ')
+                console.log(CCPA)
+            }
+
+    )
+
+         }
+
+    
+
+
+
+    if (typeof(__cmp) == 'undefined' && typeof(__tcfapi) == 'undefined' && typeof(__uspapi)== 'undefined') {
         console.log(" !! NO IAB FRAMEWORK FOUND !! \n Check if there is GDPR string in your adcall and contact publisher")
                 alert(" !! NO IAB FRAMEWORK FOUND !! \n Check if there is GDPR string in your adcall and contact publisher")
 

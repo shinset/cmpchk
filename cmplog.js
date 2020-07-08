@@ -9,7 +9,7 @@ try {
                 console.log('CONSENT STRING MISSING CHECK USER ACTIONS in cmp UI or CMP integration')
             }
             if (cmp_V2.cmpStatus == 'loaded' && (cmp_V2.tcString != '' || cmp_V2.tcString != null)) {
-                console.log("FOUND TCFAPI CMP.V2\nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode");
+                console.log("FOUND TCFAPI CMP.V2\nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode \n Vendors list https://iabeurope.eu/vendor-list-tcf-v2-0/ \n json version https://vendorlist.consensu.org/v2/vendor-list.json ");
                 console.log(cmp_V2.tcString);
                 console.log(cmp_V2);
               copy(cmp_V2.tcString);
@@ -77,37 +77,3 @@ catch (e) {
 } 
 
 window.onload = cmpChk();
-
-/* 
-function copyToClipboard(val){
-  if (typeof val === "object") {   val = JSON.stringify(val);  }
-    var dummy = document.createElement("input");
-    dummy.style.display = 'none';
-    document.body.appendChild(dummy);
-
-    dummy.setAttribute("id", "dummy_id");
-    document.getElementById("dummy_id").value=val;
-    dummy.select();
-    document.execCommand("copy");
-    document.body.removeChild(dummy);
-}
-*/
-
-  /*
-            function ReadCookie() {
-               var allcookies = document.cookie;
-               document.write ("All Cookies : " + allcookies );
-               
-               // Get all the cookies pairs in an array
-               cookiearray = allcookies.split(';');
-               
-               // Now take key value pair out of this array
-               for(var i=0; i<cookiearray.length; i++) {
-                  name = cookiearray[i].split('=')[0];
-                  value = cookiearray[i].split('=')[1];
-                  document.write ("Key is : " + name + " and Value is : " + value);
-               }
-            }
-         */
-// https://www.tutorialspoint.com/javascript/javascript_cookies.htm | https://ppk.developpez.com/tutoriels/javascript/gestion-cookies-javascript/ | https://javascript.info/cookie
-// ref https://iabeurope.eu/tcf-2-0/ | https://iabeurope.eu/events/tcf-workshop-webinars-switch-over-from-tcf-v1-0-to-tcf-v2-0-support/

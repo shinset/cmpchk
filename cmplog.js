@@ -3,6 +3,23 @@ function cmpChk() {
 try {
 
     if (typeof(__tcfapi) != 'undefined') {
+        
+        
+  __tcfapi('ping', 2, (pingReturn) => {
+console.log(pingReturn);
+
+  if (pingReturn.cmpLoaded === false ){
+
+console.log(" !!! WARNING !!! CMP V2 found but not loaded ! check the CMP \n " + "cmpLoaded = " + pingReturn.cmpLoaded )
+alert(" !!! WARNING !!! CMP V2 found but not loaded ! check the CMP \n " + "cmpLoaded = " + pingReturn.cmpLoaded )
+};
+
+ 
+});
+
+        
+        
+        
         __tcfapi('getTCData', 2, cmp_V2 => {
 
             if (cmp_V2.cmpStatus == 'loaded' && (cmp_V2.tcString == '' || cmp_V2.tcString == null)) {

@@ -8,7 +8,8 @@ try { // lets try to call a CMP framework
         
    /* Then PING the __tcfapi to check the CMP load & status then return the full object */     
   __tcfapi('ping', 2, (pingReturn) => {
-console.info('Ping the cmp V2 infos \n cmpLoaded is = '+ pingReturn.cmpLoaded +' \n cmpStatus is = ' + pingReturn.cmpStatus);
+console.debug('PING cmp v2 status')
+console.warn('Ping the cmp V2 infos \n cmpLoaded is = '+ pingReturn.cmpLoaded +' \n cmpStatus is = ' + pingReturn.cmpStatus);
 console.debug(pingReturn);
 
 /*Display a warning IF the cmploaded return FALSE */
@@ -32,7 +33,9 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
 
  /* IF cmpStatus is loaded & tcString is not empty or null ,then proceed and log the infos*/           
             if (cmp_V2.cmpStatus == 'loaded' && (cmp_V2.tcString != '' || cmp_V2.tcString != null)) {
-                console.info("FOUND TCFAPI CMP.V2\nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode \n Vendors list https://iabeurope.eu/vendor-list-tcf-v2-0/ \n json version https://vendorlist.consensu.org/v2/vendor-list.json ");
+                console.debug("CMP v2 infos");
+                console.warn("FOUND TCFAPI CMP.V2\nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode \n Vendors list https://iabeurope.eu/vendor-list-tcf-v2-0/ \n json version https://vendorlist.consensu.org/v2/vendor-list.json ");
+                console.info("Consent String");
                 console.info(cmp_V2.tcString); // log the console string alone for ease of use and try to copy later
                 console.debug(cmp_V2); // log the whole object for more detail 
               copy(cmp_V2.tcString); // try to copy the consent string to clipboard ( it may fail sometime depending the site)
@@ -58,7 +61,10 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
 
             /* if consentData is not empty or null then proceed the data log */
             if (cmp_V1.consentData != '' || cmp_V1.consentData != null) {
-                console.info("FOUND CMP.V1\nConsent string V1 (B)\n Copy & Paste it into an IAB TCF V1  decoder like https://acdn.origin.appnexus.net/cmp/docs/#/tools/vendor-cookie-inspector or use cookie glass https://chrome.google.com/webstore/detail/cookie-glasses/gncnjghkclkhpkfhghcbobednpchjifk");
+                              console.debug("CMP v1 infos");
+                console.warn("FOUND CMP.V1\nConsent string V1 (B)\n Copy & Paste it into an IAB TCF V1  decoder like https://acdn.origin.appnexus.net/cmp/docs/#/tools/vendor-cookie-inspector or use cookie glass https://chrome.google.com/webstore/detail/cookie-glasses/gncnjghkclkhpkfhghcbobednpchjifk");
+                               console.info("Consent String");
+
                 console.info(cmp_V1.consentData); // log the consent string alone for ease of use 
                 console.debug(cmp_V1); // log the whole object for more detail 
                                 copy(cmp_V1.consentData); // try to copy the consent string
@@ -79,7 +85,8 @@ not much detail here was I dont have use case and its returned in the  __tcfapi 
 */
         if (typeof(__uspapi) != 'undefined') {
 __uspapi('getUSPData', 1, (CCPA) =>{
-                console.info('FOUND CCPA FRAMEWORK \n ')
+                                console.debug("CCPA infos");
+                console.warn('FOUND CCPA FRAMEWORK \n ')
                 console.debug(CCPA)
             }
 
@@ -99,7 +106,7 @@ __uspapi('getUSPData', 1, (CCPA) =>{
 }
 // catch error 
 catch (e) { 
-    console.log(e);
+    console.error(e);
 }
 
 

@@ -96,7 +96,13 @@ __uspapi('getUSPData', 1, (CCPA) =>{
 
          }
 
-    
+        /*  Display a warning if BOTH framework answered*/
+
+    if (typeof(__cmp) != 'undefined' && typeof(__tcfapi) != 'undefined') {
+        console.error(" !! Too many IAB FRAMEWORK FOUND both V1 & V2 !! \n Check your adcall consent string version(B/C) & contact publisher !!")
+                alert(" !! Too many IAB FRAMEWORK FOUND both V1 & V2 !! \n Check your adcall consent string version(B/C) & contact publisher !!")
+
+    }
 
 /*  IF all the cmps invocation returned undefined that mean either CMP is not iab compliant OR  missing on the site */
 

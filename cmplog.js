@@ -40,6 +40,29 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
                 console.debug("Consent String");
                 console.info(cmp_V2.tcString); // log the console string alone for ease of use and try to copy later
                 console.debug(cmp_V2); // log the whole object for more detail 
+             
+                    // check if Google is here
+                    console.log("OK " + "%cG" + "%cO" + "%cO" + "%cG" + "%cL" + "%cE" + "%c Are you there ? ", 'color:blue;font-weight: bold;', 'color:red;font-weight: bold;', 'color:orange;font-weight: bold;', 'color:blue;font-weight: bold;', 'color:green;font-weight: bold;', 'color:red;font-weight: bold;', 'color:black');
+
+                    console.log(cmp_V2.vendor.consents.hasOwnProperty(755));
+
+                    // Check if user consent to google
+                    console.log("OK " + "%cG" + "%cO" + "%cO" + "%cG" + "%cL" + "%cE" + " %cDoes the Enduser consent you ?", 'color:blue;font-weight: bold;', 'color:red;font-weight: bold;', 'color:orange;font-weight: bold;', 'color:blue;font-weight: bold;', 'color:green;font-weight: bold;', 'color:red;font-weight: bold;', 'color:black');
+
+                    if (cmp_V2.vendor.consents[755] === true) {
+                        console.log("YES its = " + cmp_V2.vendor.consents[755]);
+                    } else {
+                        console.warn("NO! Please check the GVL version >= [48] & the vendors table below as it return index 755 = " + cmp_V2.vendor.consents[755]);
+                        //log the full vendors list  
+                        console.info("consents vendors table");
+                        console.table(cmp_V2.vendor.consents);
+                        // uncomment  if you want to list legitimateInterests too 
+                        // console.info("legitimateInterests vendors table")
+                        // console.table(cmp_V2.vendor.legitimateInterests)
+
+                    }
+             
+             
               copy(cmp_V2.tcString); // try to copy the consent string to clipboard ( it may fail sometime depending the site)
               alert("Consent string V2 copied to clipboard ! ");
 

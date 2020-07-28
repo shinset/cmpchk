@@ -11,7 +11,7 @@ try { // lets try to call a CMP framework
    /* Then PING the __tcfapi to check the CMP load & status then return the full object */     
   __tcfapi('ping', 2, (pingReturn) => {
 console.debug('PING cmp v2 status');
-console.warn('Ping the cmp V2 infos \n cmpLoaded is = '+ pingReturn.cmpLoaded +' \n cmpStatus is = ' + pingReturn.cmpStatus);
+console.warn('Ping the cmp V2 infos \n cmpLoaded = '+ pingReturn.cmpLoaded +' \n cmpStatus = ' + pingReturn.cmpStatus +' \n gvlVersion = ' + pingReturn.gvlVersion);
 console.debug(pingReturn);
 
 /*Display a warning IF the cmploaded return FALSE */
@@ -44,12 +44,12 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
                     // check if Google is here
                     console.log("OK " + "%cG" + "%cO" + "%cO" + "%cG" + "%cL" + "%cE" + "%c Are you there ? ", 'color:blue;font-weight: bold;', 'color:red;font-weight: bold;', 'color:orange;font-weight: bold;', 'color:blue;font-weight: bold;', 'color:green;font-weight: bold;', 'color:red;font-weight: bold;', 'color:black');
 
-                    console.log(cmp_V2.vendor.consents.hasOwnProperty(755));
+                    console.log(cmp_V2.vendor.consents.hasOwnProperty(755)); //return true if property exist
 
                     // Check if user consent to google
                     console.log("OK " + "%cG" + "%cO" + "%cO" + "%cG" + "%cL" + "%cE" + " %cDoes the Enduser consent you ?", 'color:blue;font-weight: bold;', 'color:red;font-weight: bold;', 'color:orange;font-weight: bold;', 'color:blue;font-weight: bold;', 'color:green;font-weight: bold;', 'color:red;font-weight: bold;', 'color:black');
 
-                    if (cmp_V2.vendor.consents[755] === true) {
+                    if (cmp_V2.vendor.consents[755] === true) { // check the value of consent index 755 (google)
                         console.log("YES its = " + cmp_V2.vendor.consents[755]);
                     } else {
                         console.warn("NO! Please check the GVL version >= [48] & the vendors table below as it return index 755 = " + cmp_V2.vendor.consents[755]);
@@ -63,8 +63,8 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
                     }
              
              
-              copy(cmp_V2.tcString); // try to copy the consent string to clipboard ( it may fail sometime depending the site)
-              alert("Consent string V2 copied to clipboard ! ");
+            //  copy(cmp_V2.tcString); // try to copy the consent string to clipboard ( it may fail sometime depending the site)
+           //   alert("Consent string V2 copied to clipboard ! ");
 
 
                 window.open('https://consentstringdecoder.com/', '_blank'); //  open a windows to the official IAB decoder tool https://iabtcf.com/#/decode
@@ -92,8 +92,8 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
 
                 console.info(cmp_V1.consentData); // log the consent string alone for ease of use 
                 console.debug(cmp_V1); // log the whole object for more detail 
-                                copy(cmp_V1.consentData); // try to copy the consent string
-                                alert("Consent string V1 copied to clipboard ! ");
+                                // copy(cmp_V1.consentData); // try to copy the consent string
+                                // alert("Consent string V1 copied to clipboard ! ");
 
 
 

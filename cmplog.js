@@ -39,7 +39,7 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
  /* IF cmpStatus is loaded & tcString is not empty or null ,then proceed and log the infos*/           
             if (cmp_V2.cmpStatus == 'loaded' && (cmp_V2.tcString != '' || cmp_V2.tcString != null)) {
                 console.debug("CMP v2 infos");
-                console.warn("FOUND TCFAPI CMP.V2\nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode \n Vendors list https://iabeurope.eu/vendor-list-tcf-v2-0/ \n json version https://vendorlist.consensu.org/v2/vendor-list.json ");
+                console.warn("FOUND TCFAPI CMP.V2\nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode \n Vendors list https://iabeurope.eu/vendor-list-tcf-v2-0/ \n json version https://vendorlist.consensu.org/v2/vendor-list.json \n If you are looking for the CMP ID info : https://iabeurope.eu/cmp-list/ ");
                 console.debug("Consent String");
                 console.info(cmp_V2.tcString); // log the console string alone for ease of use and try to copy later
                 console.debug(cmp_V2); // log the whole object for more detail 

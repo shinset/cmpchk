@@ -13,8 +13,7 @@ try { // lets try to call a CMP framework
         
    /* Then PING the __tcfapi to check the CMP load & status then return the full object */     
   __tcfapi('ping', 2, (pingReturn) => {
-console.debug('PING cmp v2 status');
-console.warn('Ping the cmp V2 infos \n cmpLoaded = '+ pingReturn.cmpLoaded +' \n cmpStatus = ' + pingReturn.cmpStatus +' \n gvlVersion = ' + pingReturn.gvlVersion);
+console.warn('Ping the cmp V2 infos \n cmpLoaded = '+ pingReturn.cmpLoaded +' \n cmpStatus = ' + pingReturn.cmpStatus +' \n gvlVersion = ' + pingReturn.gvlVersion +'\n gdprApplies is = ' + pingReturn.gdprApplies);
 console.debug(pingReturn);
 
 /*Display a warning IF the cmploaded return FALSE */
@@ -38,12 +37,35 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
 
  /* IF cmpStatus is loaded & tcString is not empty or null ,then proceed and log the infos*/           
             if (cmp_V2.cmpStatus == 'loaded' && (cmp_V2.tcString != '' || cmp_V2.tcString != null)) {
-                console.debug("CMP v2 infos");
-                console.warn("FOUND TCFAPI CMP.V2\nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode \n Vendors list https://iabeurope.eu/vendor-list-tcf-v2-0/ \n json version https://vendorlist.consensu.org/v2/vendor-list.json \n If you are looking for the CMP ID info : https://iabeurope.eu/cmp-list/ ");
-                console.debug("Consent String");
+                console.warn("CMP V2 FOUND with TCFAPI \nConsent string V2 (C)\n Copy & Paste it into an IAB TCF V2 decoder like https://consentstringdecoder.com or https://iabtcf.com/#/decode \n Vendors list https://iabeurope.eu/vendor-list-tcf-v2-0/ \n json version https://vendorlist.consensu.org/v2/vendor-list.json \n If you are looking for the CMP ID info : https://iabeurope.eu/cmp-list/ ");
+console.log('%c CONSENT %c STRING ', 'color: cyan; background: pink; font-size: x-large', 'color: pink; background: cyan; font-size: x-large' );
                 console.info(cmp_V2.tcString); // log the console string alone for ease of use and try to copy later
                 console.debug(cmp_V2); // log the whole object for more detail 
              
+           
+console.log('%c Purpose %c Consents ', 'color: cyan; background: pink; font-size: x-large', 'color: pink; background: cyan; font-size: x-large' );
+
+
+                    console.table(cmp_V2.purpose.consents);
+
+                                    console.log('%c Is SMART Allowed ? ', 'color: yellow; background: grey; font-size: x-large');
+     if (cmp_V2.vendor.consents[45] === true) {
+                                             console.log('%c YES SMART IS ALLOWED ! \n cmp_V2.vendor.consents[45] === true ', 'color: yellow; background: grey; font-size: x-large');
+                        }
+                         
+                    else {
+                        console.warn("NO! Please check the CMP configuration & the vendors table below for index 45 " + cmp_V2.vendor.consents[45]);
+                        //log the full vendors list  
+console.log('%c VENDOR %c Consents List ', 'color: cyan; background: pink; font-size: x-large', 'color: pink; background: cyan; font-size: x-large' );
+                        console.table(cmp_V2.vendor.consents);
+                        // uncomment  if you want to list legitimateInterests too 
+                        // console.info("legitimateInterests vendors table")
+                        // console.table(cmp_V2.vendor.legitimateInterests)
+
+                    }
+
+
+                
                     // check if Google is here
                     console.log("OK " + "%cG" + "%cO" + "%cO" + "%cG" + "%cL" + "%cE" + "%c Are you there ? ", 'color:blue;font-weight: bold;', 'color:red;font-weight: bold;', 'color:orange;font-weight: bold;', 'color:blue;font-weight: bold;', 'color:green;font-weight: bold;', 'color:red;font-weight: bold;', 'color:black');
 
@@ -54,12 +76,12 @@ alert(" !!! WARNING !!! __tcfapi (CMP V2) found but not loaded ! check the CMP \
 
                     if (cmp_V2.vendor.consents[755] === true) { // check the value of consent index 755 (google)
                         console.log("YES its = " + cmp_V2.vendor.consents[755]);
-                           console.info("consents vendors table");
+console.log('%c VENDOR %c Consents List ', 'color: cyan; background: pink; font-size: x-large', 'color: pink; background: cyan; font-size: x-large' );
                         console.table(cmp_V2.vendor.consents);
                     } else {
                         console.warn("NO! Please check the GVL version >= [48] & the vendors table below as it return index 755 = " + cmp_V2.vendor.consents[755]);
                         //log the full vendors list  
-                        console.info("consents vendors table");
+console.log('%c VENDOR %c Consents List ', 'color: cyan; background: pink; font-size: x-large', 'color: pink; background: cyan; font-size: x-large' );
                         console.table(cmp_V2.vendor.consents);
                         // uncomment  if you want to list legitimateInterests too 
                         // console.info("legitimateInterests vendors table")

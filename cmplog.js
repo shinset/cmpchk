@@ -47,6 +47,11 @@ console.log('%c Purpose %c Consents ', 'color: cyan; background: pink; font-size
 
 
                     console.table(cmp_V2.purpose.consents);
+                
+                     console.log('%c specialFeature %c Optins ', 'color: cyan; background: pink; font-size: x-large', 'color: pink; background: cyan; font-size: x-large' );
+
+                    console.table(cmp_V2.specialFeatureOptins);
+                
 
                                     console.log('%c Is SMART Allowed ? ', 'color: yellow; background: grey; font-size: x-large');
      if (cmp_V2.vendor.consents[45] === true) {

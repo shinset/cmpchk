@@ -64,7 +64,8 @@ console.log('%c VENDOR %c Consents List ', 'color: cyan; background: pink; font-
 
                     }
 
-
+console.log('%c Google %c addtlConsent ', 'color: cyan; background: pink; font-size: x-large', 'color: pink; background: cyan; font-size: x-large' );
+console.warn(cmp_V2.addtlConsent)
                 
                     // check if Google is here
                     console.log("OK " + "%cG" + "%cO" + "%cO" + "%cG" + "%cL" + "%cE" + "%c Are you there ? ", 'color:blue;font-weight: bold;', 'color:red;font-weight: bold;', 'color:orange;font-weight: bold;', 'color:blue;font-weight: bold;', 'color:green;font-weight: bold;', 'color:red;font-weight: bold;', 'color:black');
